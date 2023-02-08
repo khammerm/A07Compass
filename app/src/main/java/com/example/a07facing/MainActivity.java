@@ -5,14 +5,19 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements SensorEventListener {
+
+public class MainActivity extends Activity implements SensorEventListener{
 
     // define the display assembly compass picture
+    Button button2 = findViewById(R.id.button2);
     private ImageView image;
 
     // record the compass picture angle turned
@@ -22,6 +27,7 @@ public class MainActivity extends Activity implements SensorEventListener {
     private SensorManager mSensorManager;
 
     TextView tvHeading;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +88,16 @@ public class MainActivity extends Activity implements SensorEventListener {
         currentDegree = -degree;
 
     }
+
+    // tried adding button to change bg color, getting some errors.
+
+//    button2.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//            // set the color to relative layout
+//            image.setBackgroundColor(R.color.purple_500);
+//        }
+//    });
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
